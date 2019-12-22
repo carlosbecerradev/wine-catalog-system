@@ -1,0 +1,10 @@
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\TVDAL.dll.config
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\TVDAL.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\TVDAL.pdb
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\EntityFramework.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\EntityFramework.xml
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\obj\Debug\TVDAL.csprojResolveAssemblyReference.cache
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\obj\Debug\TVDAL.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVDAL\obj\Debug\TVDAL.pdb

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cepa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vinoes" Relationship="Self.FK_Cepa_Id" FromRole="Cepa" ToRole="Vino" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vinoes" Relationship="Self.FK_Marca_Id" FromRole="Marca" ToRole="Vino" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Role_Id" FromRole="Role" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoVino">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vinoes" Relationship="Self.FK_TipoVino_Id" FromRole="TipoVino" ToRole="Vino" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Role_Id" FromRole="Usuario" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Vino">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImagenUri" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdTipoVino" Type="Int32" Nullable="false" />
+    <Property Name="IdMarca" Type="Int32" Nullable="false" />
+    <Property Name="IdCepa" Type="Int32" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cosecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Precio" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cepa" Relationship="Self.FK_Cepa_Id" FromRole="Vino" ToRole="Cepa" />
+    <NavigationProperty Name="Marca" Relationship="Self.FK_Marca_Id" FromRole="Vino" ToRole="Marca" />
+    <NavigationProperty Name="TipoVino" Relationship="Self.FK_TipoVino_Id" FromRole="Vino" ToRole="TipoVino" />
+  </EntityType>
+  <Association Name="FK_Cepa_Id">
+    <End Role="Cepa" Type="Self.Cepa" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cepa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdCepa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marca_Id">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Id">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoVino_Id">
+    <End Role="TipoVino" Type="Self.TipoVino" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoVino">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdTipoVino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cepas" EntityType="Self.Cepa" />
+    <EntitySet Name="Marcas" EntityType="Self.Marca" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TipoVinoes" EntityType="Self.TipoVino" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Vinoes" EntityType="Self.Vino" />
+    <AssociationSet Name="FK_Cepa_Id" Association="Self.FK_Cepa_Id">
+      <End Role="Cepa" EntitySet="Cepas" />
+      <End Role="Vino" EntitySet="Vinoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marca_Id" Association="Self.FK_Marca_Id">
+      <End Role="Marca" EntitySet="Marcas" />
+      <End Role="Vino" EntitySet="Vinoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Id" Association="Self.FK_Role_Id">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoVino_Id" Association="Self.FK_TipoVino_Id">
+      <End Role="TipoVino" EntitySet="TipoVinoes" />
+      <End Role="Vino" EntitySet="Vinoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

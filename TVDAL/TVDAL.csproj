@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,10 +49,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cepa.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Marca.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiendaVinosModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TiendaVinosModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiendaVinosModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiendaVinosModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TiendaVinosModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TipoVino.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vino.cs">
+      <DependentUpon>TiendaVinosModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="TiendaVinosModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TiendaVinosModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TiendaVinosModel.edmx.diagram">
+      <DependentUpon>TiendaVinosModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TiendaVinosModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TiendaVinosModel.edmx</DependentUpon>
+      <LastGenOutput>TiendaVinosModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TiendaVinosModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TiendaVinosModel.edmx</DependentUpon>
+      <LastGenOutput>TiendaVinosModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />

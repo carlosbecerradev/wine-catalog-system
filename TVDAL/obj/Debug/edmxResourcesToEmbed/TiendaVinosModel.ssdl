@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cepa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoVino">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Contrasenia" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vino">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagenUri" Type="varchar" MaxLength="1024" Nullable="false" />
+    <Property Name="IdTipoVino" Type="int" Nullable="false" />
+    <Property Name="IdMarca" Type="int" Nullable="false" />
+    <Property Name="IdCepa" Type="int" Nullable="false" />
+    <Property Name="Pais" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Cosecha" Type="date" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Cepa_Id">
+    <End Role="Cepa" Type="Self.Cepa" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cepa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdCepa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marca_Id">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Id">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoVino_Id">
+    <End Role="TipoVino" Type="Self.TipoVino" Multiplicity="1" />
+    <End Role="Vino" Type="Self.Vino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoVino">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vino">
+        <PropertyRef Name="IdTipoVino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBContextStoreContainer">
+    <EntitySet Name="Cepa" EntityType="Self.Cepa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoVino" EntityType="Self.TipoVino" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vino" EntityType="Self.Vino" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cepa_Id" Association="Self.FK_Cepa_Id">
+      <End Role="Cepa" EntitySet="Cepa" />
+      <End Role="Vino" EntitySet="Vino" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marca_Id" Association="Self.FK_Marca_Id">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Vino" EntitySet="Vino" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Id" Association="Self.FK_Role_Id">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoVino_Id" Association="Self.FK_TipoVino_Id">
+      <End Role="TipoVino" EntitySet="TipoVino" />
+      <End Role="Vino" EntitySet="Vino" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
