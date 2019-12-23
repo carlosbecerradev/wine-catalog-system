@@ -31,3 +31,5 @@ E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWFRONT\obj\Debug\TVWFRONT.csprojResolveAssemblyReference.cache
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWFRONT\obj\Debug\TVWFRONT.dll
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWFRONT\obj\Debug\TVWFRONT.pdb
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWFRONT\bin\System.Net.Http.Formatting.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWFRONT\bin\System.Net.Http.Formatting.xml
