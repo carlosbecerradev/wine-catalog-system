@@ -121,6 +121,7 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\CepaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\VerificarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +167,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Cepa\Index.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -16,26 +16,6 @@ namespace CTVAPI.Controllers
         private DBModel objDB = new DBModel();
 
         [HttpGet]
-        public RoleViewModel Get(string tipo)
-        {
-            RoleViewModel role = new RoleViewModel();
-            using (DBModel cn = new DBModel())
-            {
-                var x = cn.Roles.ToList().FirstOrDefault(e => (e.Tipo == tipo.ToUpper()));
-                if (x != null)
-                {
-                    role.Id = x.Id;
-                    role.Tipo = x.Tipo;
-                }
-                else
-                {
-                    role.Id = -1;
-                }
-                return role;
-            }
-        }
-
-        [HttpGet]
         public IEnumerable<RoleViewModel> Get()
         {
             IList<RoleViewModel> lstRole = null;

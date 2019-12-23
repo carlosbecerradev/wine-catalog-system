@@ -54,6 +54,11 @@ namespace TVCMS.Controllers
                     else
                     {
                         Session["ssUsuario"] = destUsr;
+
+                        if (destUsr.IdRole == 1) // ADMIN
+                        {
+                            return RedirectToAction("Index", "Usuario");
+                        }
                         return RedirectToAction("Index", "Cepa");
                     }
                 }
