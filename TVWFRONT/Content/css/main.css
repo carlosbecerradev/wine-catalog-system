@@ -1,0 +1,65 @@
+/*
+  Variables
+*/
+:root {
+  --color-link: #5f5f5f;
+  --color-primary: #5e2129;
+  --color-secondary:  #fff; 
+  /* #a2c0cd;*/
+  /* #bbaca3 */
+  --color-light: #f5f5f5;
+  --color-dark: #121212;
+  --color-shadow: #2b2b3390;
+  
+  --font-playfair: 'Playfair Display', serif;
+  --font-roboto: 'Roboto', sans-serif;
+
+  --text-small: 16px;
+  --text-medium: 20px;
+  --text-large: 28px;
+  --text-xlarge: 48px;
+}
+
+/* 
+  theme 
+*/
+.btn-warning {
+  background-color:  var(--color-secondary) !important;
+}
+.text-warning {
+  color:  var(--color-secondary) !important;
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.bg-dark {
+  background-color: #1a1a1a !important; 
+}
+.border-bottom, .border-top {
+  border-color: var(--color-light) !important;
+}
+
+/* 
+  Helpers 
+*/
+li[class*="active"] a {
+  font-weight: 500;
+  position: relative;
+  color: var(--color-secondary) !important;
+}
+li[class*="active"] a:before {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 30%;
+  width: 40%;
+  border-bottom: 1px solid var(--color-secondary);
+  transition: .5s;
+}
+li[class*="active"]:hover a:before {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+}

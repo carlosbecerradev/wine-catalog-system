@@ -1,0 +1,13 @@
+
+/* 
+  Footer 
+*/
+.main-footer {
+  width: 100%;
+  color: var(--color-light);
+  align-self: flex-end;
+}
+
+.main-footer-year {
+  font-size: .8rem;
+}

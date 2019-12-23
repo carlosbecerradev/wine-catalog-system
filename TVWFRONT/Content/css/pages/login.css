@@ -1,0 +1,11 @@
+.lbl-text {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+body {
+    background-color: var(--color-dark);
+    background-image: url(../../img/bg4.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
+}

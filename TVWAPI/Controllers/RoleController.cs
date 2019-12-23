@@ -66,19 +66,19 @@ namespace CTVAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarRol(int Id, [FromBody]RoleViewModel role)
+        public IHttpActionResult EditarRol([FromBody]RoleViewModel role)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.Roles.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.Roles.Count(c => c.Id == role.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.Roles.Find(Id);
+                    var x = objDB.Roles.Find(role.Id);
                     x.Tipo = role.Tipo;
 
                     objDB.SaveChanges();
-                    return Ok(role);
+                    return Ok();
                 }
                 else
                 {

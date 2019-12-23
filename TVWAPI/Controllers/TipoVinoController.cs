@@ -65,19 +65,19 @@ namespace CTVAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarTVino(int Id, [FromBody]TipoVinoViewModel tVino)
+        public IHttpActionResult EditarTVino([FromBody]TipoVinoViewModel tVino)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.TipoVinoes.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.TipoVinoes.Count(c => c.Id == tVino.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.TipoVinoes.Find(Id);
+                    var x = objDB.TipoVinoes.Find(tVino.Id);
                     x.Nombre = tVino.Nombre;
 
                     objDB.SaveChanges();
-                    return Ok(tVino);
+                    return Ok();
                 }
                 else
                 {

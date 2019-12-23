@@ -1,0 +1,26 @@
+
+.navbar-brand {
+  color: var(--color-secondary) !important;
+}
+.navbar-brand:hover {
+  color: var(--color-light) !important;
+}
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-nav {
+  display: inline;
+  align-self: center;
+}
+.nav-item {
+  display: inline-block !important;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.nav-link {
+  display: inline;;
+}

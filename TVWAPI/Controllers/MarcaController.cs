@@ -65,19 +65,19 @@ namespace CTVAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarMarca(int Id, [FromBody]MarcaViewModel marca)
+        public IHttpActionResult EditarMarca([FromBody]MarcaViewModel marca)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.Marcas.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.Marcas.Count(c => c.Id == marca.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.Marcas.Find(Id);
+                    var x = objDB.Marcas.Find(marca.Id);
                     x.Nombre = marca.Nombre;
 
                     objDB.SaveChanges();
-                    return Ok(marca);
+                    return Ok();
                 }
                 else
                 {

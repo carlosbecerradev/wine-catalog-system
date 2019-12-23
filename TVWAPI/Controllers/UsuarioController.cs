@@ -101,22 +101,22 @@ namespace CTVAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarUsuario(int Id, [FromBody]UsuarioViewModel usuario)
+        public IHttpActionResult EditarUsuario([FromBody]UsuarioViewModel usuario)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.Usuarios.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.Usuarios.Count(c => c.Id == usuario.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.Usuarios.Find(Id);
+                    var x = objDB.Usuarios.Find(usuario.Id);
                     x.Nombre = usuario.Nombre;
                     x.Contrasenia = usuario.Contrasenia;
                     x.Estado = usuario.Estado;
                     x.IdRole = usuario.IdRole;
 
                     objDB.SaveChanges();
-                    return Ok(usuario);
+                    return Ok();
                 }
                 else
                 {

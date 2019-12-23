@@ -89,15 +89,15 @@ namespace CTVAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarVino(int Id, [FromBody]VinoViewModel vino)
+        public IHttpActionResult EditarVino([FromBody]VinoViewModel vino)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.Vinoes.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.Vinoes.Count(c => c.Id == vino.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.Vinoes.Find(Id);
+                    var x = objDB.Vinoes.Find(vino.Id);
                     x.ImagenUri = vino.ImagenUri;
                     x.IdTipoVino = vino.IdTipoVino;
                     x.IdMarca = vino.IdMarca;
@@ -108,7 +108,7 @@ namespace CTVAPI.Controllers
                     x.Stock = vino.Stock;
 
                     objDB.SaveChanges();
-                    return Ok(vino);
+                    return Ok();
                 }
                 else
                 {

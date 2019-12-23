@@ -1,0 +1,331 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Normalize -->
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap/bootstrap.min.css">
+    <!-- My css-->
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/generics.css">
+    <link rel="stylesheet" href="~/Content/css/utils.css">
+    <link rel="stylesheet" href="~/Content/css/pages/products.css">
+    <link rel="stylesheet" href="~/Content/css/components/footer.css">
+    <link rel="stylesheet" href="~/Content/css/components/nav.css">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/9dca648001.js" crossorigin="anonymous"></script>
+    <title>Veur - Catálogo</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,500&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+    <header class="main-header ">
+        <nav class="navbar navbar-expand-md  navbar-dark bg-transparent justify-content-end justify-content-md-between">
+            @Html.ActionLink("Veur.", "Inicio", new { controller = "Home" },
+                           new { @class = "navbar-brand text-playfair mr-auto mr-md-0" })
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-none  text-right ml-md-auto">
+                    <li class="nav-item ">
+                        @Html.ActionLink("Inicio", "Inicio", new { controller = "Home" },
+                  new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item active">
+                        @Html.ActionLink("Catalogo", "Catalogo", new { controller = "Home" },
+                  new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Acceder", "Acceder", new { controller = "Home" },
+                  new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-products">
+        <div class="container-fluid">
+            <div class="row">
+                <!--Main catalog-->
+                <div class="col-12">
+                    <nav class="header-products d-flex justify-content-between py-4">
+                        <!--filters button-->
+                        <div class="btn-group filters">
+                            <button id="filters-dropdown-btn" class="btn btn-option bg-dark dropdown-toggle">
+                                Filtrar
+                            </button>
+                            <div id="filters-dropdown-block" class="filters-block rounded">
+                                <details class="filters-details" open>
+                                    <summary>Tipos de Vino <i class="fas fa-chevron-down"></i></summary>
+                                    <div class="filters-options">
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Vino Tinto
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Vino Blanco
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Vino Rose
+                                        </label>
+                                    </div>
+                                </details>
+                                <details class="filters-details">
+                                    <summary>Marca <i class="fas fa-chevron-down"></i></summary>
+                                    <div class="filters-options">
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Alamos
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Aliwen
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Colome
+                                        </label>
+                                    </div>
+                                </details>
+                                <details class="filters-details">
+                                    <summary>País <i class="fas fa-chevron-down"></i></summary>
+                                    <div class="filters-options">
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Peru
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Argentina
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            España
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Italia
+                                        </label>
+                                    </div>
+                                </details>
+                                <details class="filters-details">
+                                    <summary>Cepa <i class="fas fa-chevron-down"></i></summary>
+                                    <div class="filters-options">
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Ancellota
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Blend
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Bonarda
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Cabernet Franc
+                                        </label>
+                                    </div>
+                                </details>
+                                <details class="filters-details">
+                                    <summary>Rango de precios <i class="fas fa-chevron-down"></i></summary>
+                                    <div class="filters-options">
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Hasta 50
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            50 - 100
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            100 - 200
+                                        </label>
+                                        <label class="filters-label dropdown-item">
+                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
+                                            Más de 200
+                                        </label>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                        <h2 class="main-title text-playfair d-none d-md-block">Selección de Vinos</h2>
+                        <!--sort-by button-->
+                        <div class="btn-group sort-by">
+                            <button type="button" class="btn btn-option bg-dark dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Ordenar
+                            </button>
+                            <div class="filters-block dropdown-menu dropdown-menu-right sort-by-block"
+                                 aria-labelledby="dropdownMenuReference">
+                                <button class="dropdown-item sort-by-btn">Menor a Mayor Precio</button>
+                                <button class="dropdown-item sort-by-btn">Mayor a Menor Precio</button>
+                                <button class="dropdown-item sort-by-btn">Por año</button>
+                                <!-- <div class="dropdown-divider"></div> -->
+                            </div>
+                        </div>
+                    </nav>
+                    <h2 class="main-title text-playfair d-md-none">Selección de Vinos</h2>
+                    <!--cards section-->
+                    <div class="row no-gutters justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Septima
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Septima </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Argentina |</span>
+                                        <span class="card-year">10 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Nieto Senetiner
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Nieto Senetiner </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Perú |</span>
+                                        <span class="card-year">15 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Septima
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Septima </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Argentina |</span>
+                                        <span class="card-year">10 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Nieto Senetiner
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Nieto Senetiner </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Perú |</span>
+                                        <span class="card-year">15 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Septima
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Septima </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Argentina |</span>
+                                        <span class="card-year">10 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card bg-dark text-light">
+                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning text-uppercase text-playfair">
+                                        Nieto Senetiner
+                                    </h5>
+                                    <p class="card-text">
+                                        <span>Vino Tinto </span>
+                                        <span>Nieto Senetiner </span>
+                                        <span>Malbec </span>
+                                        <span>Botella 750 ml </span>
+                                        <span class="card-country"> | Perú |</span>
+                                        <span class="card-year">15 meses</span>
+                                    </p>
+                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer text-playfair mt-4">
+        <div class="container-fluid">
+            <div class="py-2 d-flex justify-content-between align-items-center border-top">
+                <span class="main-footer-year text-roboto">By cbherit</span>
+                <a href="#"><i class="fas fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </footer>  
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/js/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="~/Content/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="~/Content/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="~/Content/js/main.js"></script>
+</body>
+</html>

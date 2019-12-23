@@ -1,0 +1,40 @@
+
+/* 
+  Utils 
+*/
+
+.text-playfair {
+    font-family: var(--font-playfair);
+    font-weight: 700;
+    letter-spacing: .2rem;
+}
+.text-roboto {
+    font-family: var(--font-roboto);
+    font-weight: 400;
+}
+.bgc-wine {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.bgc-wine:hover {
+  background-color: #fff;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.bgc-secondary {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+}
+.bgc-light {
+  background-color: var(--color-light);
+}
+.text-wine {
+  font-weight: 500;
+} 
+.main-title {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-secondary);
+}

@@ -113,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Marca\" />
+    <Folder Include="Views\Role\" />
+    <Folder Include="Views\TipoVino\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -121,7 +124,11 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\CepaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarcaController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\TipoVinoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VinoController.cs" />
     <Compile Include="Filters\VerificarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,6 +179,11 @@
     <Content Include="Views\Cepa\Create.cshtml" />
     <Content Include="Views\Cepa\Edit.cshtml" />
     <Content Include="Views\Cepa\Delete.cshtml" />
+    <Content Include="Views\Vino\Index.cshtml" />
+    <Content Include="Views\Vino\Details.cshtml" />
+    <Content Include="Views\Vino\Delete.cshtml" />
+    <Content Include="Views\Vino\Create.cshtml" />
+    <Content Include="Views\Vino\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
