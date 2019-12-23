@@ -66,19 +66,19 @@ namespace TVWAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditarCepa(int Id, [FromBody]CepaViewModel cepa)
+        public IHttpActionResult EditarCepa([FromBody]CepaViewModel ObjEdit)
         {
             if (ModelState.IsValid)
             {
-                var regexiste = objDB.Cepas.Count(c => c.Id == Id) > 0;
+                var regexiste = objDB.Cepas.Count(c => c.Id == ObjEdit.Id) > 0;
 
                 if (regexiste)
                 {
-                    var x = objDB.Cepas.Find(Id);
-                    x.Nombre = cepa.Nombre;
+                    var x = objDB.Cepas.Find(ObjEdit.Id);
+                    x.Nombre = ObjEdit.Nombre;
 
                     objDB.SaveChanges();
-                    return Ok(cepa);
+                    return Ok();
                 }
                 else
                 {
