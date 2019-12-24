@@ -28,32 +28,32 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdTipoVino, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdTipoVino, new SelectList(Model.lstTVino, "Id", "Nombre"), "Select")
-                @Html.ValidationMessageFor(model => model.IdTipoVino, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IdTipoVino)
+                @Html.ValidationMessageFor(model => model.IdTipoVino)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdMarca, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdMarca, new SelectList(Model.lstMarca, "Id", "Nombre"), "Select")
-                @Html.ValidationMessageFor(model => model.IdMarca, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IdMarca)
+                @Html.ValidationMessageFor(model => model.IdMarca)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdCepa, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdCepa, new SelectList(Model.lstCepa, "Id", "Nombre"), "Select")
-                @Html.ValidationMessageFor(model => model.IdCepa, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IdCepa)
+                @Html.ValidationMessageFor(model => model.IdCepa)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Pais, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Pais, new SelectList(Model.lstPais), "Select")
-                @Html.ValidationMessageFor(model => model.Pais, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Pais)
+                @Html.ValidationMessageFor(model => model.Pais)
             </div>
         </div>
 

@@ -27,7 +27,7 @@ namespace TVCMS.Controllers
             var result = client.GetAsync(BaseURL).Result;
             if (result.IsSuccessStatusCode)
             {
-                list = result.Content.ReadAsAsync<List<VinoViewModel>>().Result;
+                list = result.Content.ReadAsAsync<List<VinoViewModel>>().Result;        
             }
             return View(list);
         }
@@ -52,6 +52,9 @@ namespace TVCMS.Controllers
                     readTask.Wait();
 
                     ObjResult = readTask.Result;
+                    ObjResult.TipoVino = client.GetAsync("http://localhost:3212/api/TipoVino?id=" + ObjResult.IdTipoVino.ToString()).Result.Content.ReadAsAsync<TipoVinoViewModel>().Result;
+                    ObjResult.Marca = client.GetAsync("http://localhost:3212/api/Marca?id=" + ObjResult.IdMarca.ToString()).Result.Content.ReadAsAsync<MarcaViewModel>().Result;
+                    ObjResult.Cepa = client.GetAsync("http://localhost:3212/api/Cepa?id=" + ObjResult.IdCepa.ToString()).Result.Content.ReadAsAsync<CepaViewModel>().Result;
                 }
             }
 

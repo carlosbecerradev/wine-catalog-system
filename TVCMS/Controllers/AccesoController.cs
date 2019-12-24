@@ -69,5 +69,13 @@ namespace TVCMS.Controllers
 
 
         }
+
+
+        public ActionResult Logout()
+        {
+            Session["ssUsuario"] = null;
+            return RedirectToAction("Login", "Acceso");
+        }
+
 	}
 }

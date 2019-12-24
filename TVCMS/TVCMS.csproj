@@ -113,9 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Marca\" />
-    <Folder Include="Views\Role\" />
-    <Folder Include="Views\TipoVino\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -172,18 +169,30 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Cepa\Index.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Cepa\Index.cshtml" />
     <Content Include="Views\Cepa\Details.cshtml" />
     <Content Include="Views\Cepa\Create.cshtml" />
     <Content Include="Views\Cepa\Edit.cshtml" />
     <Content Include="Views\Cepa\Delete.cshtml" />
     <Content Include="Views\Vino\Index.cshtml" />
     <Content Include="Views\Vino\Details.cshtml" />
-    <Content Include="Views\Vino\Delete.cshtml" />
     <Content Include="Views\Vino\Create.cshtml" />
-    <Content Include="Views\Vino\Edit.cshtml" />
+    <Content Include="Views\Marca\Index.cshtml" />
+    <Content Include="Views\Marca\Details.cshtml" />
+    <Content Include="Views\Marca\Create.cshtml" />
+    <Content Include="Views\Marca\Edit.cshtml" />
+    <Content Include="Views\Marca\Delete.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\TipoVino\Index.cshtml" />
+    <Content Include="Views\TipoVino\Details.cshtml" />
+    <Content Include="Views\TipoVino\Create.cshtml" />
+    <Content Include="Views\TipoVino\Edit.cshtml" />
+    <Content Include="Views\TipoVino\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
