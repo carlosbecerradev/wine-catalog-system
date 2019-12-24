@@ -11,7 +11,7 @@ namespace TVCMS.Models
     public class CepaViewModel
     {
         public int Id { get; set; }
-        [Display(Name = "Cepa")]
+
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Debe ingresar un nombre, revisar!")]
         public string Nombre { get; set; }

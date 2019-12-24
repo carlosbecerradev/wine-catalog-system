@@ -33,16 +33,13 @@ namespace TVCMS.Models
         public string Pais { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Seleccionar una fecha, revisar!")]
         public System.DateTime Cosecha { get; set; }
 
-        [Range(1, 500)]
         [DataType(DataType.Currency)]
         [Required(ErrorMessage = "Debe ingresar un precio, revisar!")]
         public Nullable<decimal> Precio { get; set; }
 
-        [Range(1, 3000)]
         [Required(ErrorMessage = "Debe ingresar la cantidad de stock, revisar!")]
         public int Stock { get; set; }
 

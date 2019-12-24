@@ -45,13 +45,13 @@
             @Html.DisplayFor(modelItem => item.ImagenUri)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdTipoVino)
+            @Html.DisplayFor(modelItem => item.TipoVino.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdMarca)
+            @Html.DisplayFor(modelItem => item.Marca.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdCepa)
+            @Html.DisplayFor(modelItem => item.Cepa.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Pais)

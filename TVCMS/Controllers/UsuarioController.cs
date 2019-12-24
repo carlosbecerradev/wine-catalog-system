@@ -25,6 +25,10 @@ namespace TVCMS.Controllers
             if (result.IsSuccessStatusCode)
             {
                 list = result.Content.ReadAsAsync<List<UsuarioViewModel>>().Result;
+                foreach (UsuarioViewModel usr in list)
+                {
+                    usr.Role = client.GetAsync("http://localhost:3212/api/Role?id=" + usr.IdRole.ToString()).Result.Content.ReadAsAsync<RoleViewModel>().Result;
+                }
             }
             return View(list);
         }
