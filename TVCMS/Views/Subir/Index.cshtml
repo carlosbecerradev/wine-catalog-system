@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Subir imagenes</h1>
+        <div class="container">
+            <div>
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success"    role="alert">
+                        <a href="@ViewBag.Success">Abrir archivo</a>
+                    </div>
+                }
+                else if (ViewBag.Failed != null)
+                {
+                    <div class="alert alert-error"    role="alert">
+                        <p>Error @ViewBag.Failed</p>
+                    </div>
+                }
+            </div>
+            @using (Html.BeginForm("Index", "Subir", FormMethod.Post, new { role="form", enctype="multipart/form-data" } ))
+            {
+                <div class="form-group">
+                    <input type="file" name="file" id="file" />
+                </div>
+                <button class="btn btn-primary">Subir</button>
+            }
+        </div>
+    </div>
+</body>
+</html>

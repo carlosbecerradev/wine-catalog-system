@@ -11,6 +11,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+using System.IO;
+
 
 namespace TVCMS.Controllers
 {
@@ -73,6 +75,7 @@ namespace TVCMS.Controllers
             VinoViewModel obj = new VinoViewModel();
             HttpClient client = new HttpClient();
 
+            obj.lstImagenes = client.GetAsync("http://localhost:3212/api/Upload").Result.Content.ReadAsAsync<List<string>>().Result;
             obj.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;
             obj.lstMarca = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
             obj.lstCepa = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;
@@ -92,11 +95,13 @@ namespace TVCMS.Controllers
         public ActionResult Create(VinoViewModel objC)
         {
             try
-            {
+            {                                                
                 // TODO: Add insert logic here
                 using (var client = new HttpClient())
                 {
+
                     client.BaseAddress = new Uri(BaseURL);
+
 
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<VinoViewModel>("Vino", objC);
@@ -140,6 +145,7 @@ namespace TVCMS.Controllers
 
                     ObjEd = readTask.Result;
                 }
+                ObjEd.lstImagenes = client.GetAsync("http://localhost:3212/api/Upload").Result.Content.ReadAsAsync<List<string>>().Result;
                 ObjEd.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;
                 ObjEd.lstMarca = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
                 ObjEd.lstCepa = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;

@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using System.IO;
+
 using TVWAPI.Models;
 using TVDAL;
 
@@ -66,9 +68,11 @@ namespace CTVAPI.Controllers
         [HttpPost]
         public IHttpActionResult CrearVino([FromBody]VinoViewModel vino)
         {
+            
             if (ModelState.IsValid)
-            {
-                objDB.Vinoes.Add(new Vino() {
+            {                
+                objDB.Vinoes.Add(new Vino()
+                {
                     ImagenUri = vino.ImagenUri,
                     IdTipoVino = vino.IdTipoVino,
                     IdMarca = vino.IdMarca,

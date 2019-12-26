@@ -21,7 +21,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImagenUri, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImagenUri)
+                @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.ImagenUri)
             </div>
         </div>

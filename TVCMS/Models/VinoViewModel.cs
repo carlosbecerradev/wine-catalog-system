@@ -55,6 +55,8 @@ namespace TVCMS.Models
         public List<CepaViewModel> lstCepa { get; set; }
         [NotMapped]
         public List<string> lstPais { get; set; }
+        [NotMapped]
+        public List<string> lstImagenes { get; set; }
 
     }
 }

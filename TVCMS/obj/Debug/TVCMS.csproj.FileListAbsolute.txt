@@ -30,6 +30,6 @@ E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\bin\es\System.Web.WebPages.resources.dll
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\bin\es\System.Web.WebPages.Deployment.resources.dll
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\bin\es\System.Web.WebPages.Razor.resources.dll
-E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\obj\Debug\TVCMS.csprojResolveAssemblyReference.cache
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\obj\Debug\TVCMS.dll
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\obj\Debug\TVCMS.pdb
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVCMS\obj\Debug\TVCMS.csprojResolveAssemblyReference.cache

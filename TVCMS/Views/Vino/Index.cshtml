@@ -42,7 +42,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ImagenUri)
+            <img src="@Html.DisplayFor(modelItem => item.ImagenUri)" width="100px" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TipoVino.Nombre)

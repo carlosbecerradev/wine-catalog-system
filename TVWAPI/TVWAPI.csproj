@@ -157,6 +157,7 @@
     <Compile Include="Models\MarcaViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\TipoVinoViewModel.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\VinoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

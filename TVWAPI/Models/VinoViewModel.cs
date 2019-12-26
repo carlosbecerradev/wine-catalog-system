@@ -16,5 +16,6 @@ namespace TVWAPI.Models
         public System.DateTime Cosecha { get; set; }
         public Nullable<decimal> Precio { get; set; }
         public int Stock { get; set; }
+
     }
 }

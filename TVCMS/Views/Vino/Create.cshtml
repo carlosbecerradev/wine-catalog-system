@@ -7,7 +7,7 @@
 
 <h2>Create</h2>
 
-
+<a class="btn btn-primary py-3" href="http://localhost:3294/Subir/Index" target="_blank">Subir Imágenes</a>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImagenUri, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImagenUri, new { type = "file" })
+                @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.ImagenUri)
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdTipoVino, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdTipoVino, new SelectList(Model.lstTVino, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdTipoVino, new SelectList(Model.lstTVino, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdTipoVino)
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdMarca, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdMarca, new SelectList(Model.lstMarca, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdMarca, new SelectList(Model.lstMarca, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdMarca)
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdCepa, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdCepa, new SelectList(Model.lstCepa, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdCepa, new SelectList(Model.lstCepa, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdCepa)
             </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Pais, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Pais, new SelectList(Model.lstPais), "Selecciona")
+                @Html.DropDownListFor(model => model.Pais, new SelectList(Model.lstPais), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.Pais)
             </div>
         </div>
