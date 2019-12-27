@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TVWFRONT.Models.VinoViewModel>
+﻿@model  IEnumerable<TVWFRONT.Models.VinoViewModel>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -66,18 +67,12 @@
                                 <details class="filters-details" open>
                                     <summary>Tipos de Vino <i class="fas fa-chevron-down"></i></summary>
                                     <div class="filters-options">
+                                    @foreach (var item in Model) {
                                         <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Vino Tinto
+                                            <input type="checkbox"  name="tipo_vino" value="">
+                                            @Html.DisplayFor(modelItem => item.lstTVino)
                                         </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Vino Blanco
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Vino Rose
-                                        </label>
+                                    }
                                     </div>
                                 </details>
                                 <details class="filters-details">
@@ -94,27 +89,6 @@
                                         <label class="filters-label dropdown-item">
                                             <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
                                             Colome
-                                        </label>
-                                    </div>
-                                </details>
-                                <details class="filters-details">
-                                    <summary>País <i class="fas fa-chevron-down"></i></summary>
-                                    <div class="filters-options">
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Peru
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Argentina
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            España
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Italia
                                         </label>
                                     </div>
                                 </details>

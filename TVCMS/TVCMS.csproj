@@ -121,7 +121,6 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\CepaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImgSaveController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SubirController.cs" />
@@ -202,7 +201,6 @@
     <Content Include="Views\Vino\Create.cshtml" />
     <Content Include="Views\Vino\Edit.cshtml" />
     <Content Include="Views\Vino\Delete.cshtml" />
-    <Content Include="Views\ImgSave\Index.cshtml" />
     <Content Include="Views\Subir\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
