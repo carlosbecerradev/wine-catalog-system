@@ -51,8 +51,16 @@ summary {
     background-color: var(--color-primary);
 }
 .card-img-top {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background-color: #ffF;
+}
+.card-img-top img {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    
+    object-fit: scale-down;
 }
 .card-title {
     font-weight: 700;
@@ -89,9 +97,4 @@ summary {
 .fa-chevron-up {
     font-size: 1.5rem;
     color: var(--color-secondary);
-}
-
-/* Descuento */
-.btn-price.descuento {
-
 }

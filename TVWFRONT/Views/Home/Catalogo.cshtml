@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿@model IEnumerable<TVWFRONT.Models.VinoViewModel>
+<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -170,9 +171,11 @@
                             </button>
                             <div class="filters-block dropdown-menu dropdown-menu-right sort-by-block"
                                  aria-labelledby="dropdownMenuReference">
+
                                 <button class="dropdown-item sort-by-btn">Menor a Mayor Precio</button>
                                 <button class="dropdown-item sort-by-btn">Mayor a Menor Precio</button>
                                 <button class="dropdown-item sort-by-btn">Por año</button>
+
                                 <!-- <div class="dropdown-divider"></div> -->
                             </div>
                         </div>
@@ -180,128 +183,36 @@
                     <h2 class="main-title text-playfair d-md-none">Selección de Vinos</h2>
                     <!--cards section-->
                     <div class="row no-gutters justify-content-center">
+
+                    @foreach (var item in Model) {
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
                             <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
-                                     class="card-img-top" alt="...">
+                                <div class="card-img-top">
+                                    <img src="@Html.DisplayFor(modelItem => item.ImagenUri)" class="d-block" alt="...">
+                                </div>                                
                                 <div class="card-body text-center">
                                     <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Septima
+                                        @Html.DisplayFor(modelItem => item.Marca.Nombre)
                                     </h5>
                                     <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Septima </span>
-                                        <span>Malbec </span>
+                                        <span>@Html.DisplayFor(modelItem => item.TipoVino.Nombre) </span>
+                                        <span>@Html.DisplayFor(modelItem => item.Marca.Nombre) </span>
+                                        <span>@Html.DisplayFor(modelItem => item.Cepa.Nombre) </span>
                                         <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Argentina |</span>
-                                        <span class="card-year">10 meses</span>
+                                        <span class="card-country"> | @Html.DisplayFor(modelItem => item.Pais) |</span>
+                                        @{
+                                            DateTime thisDay = DateTime.Today;
+                                            int meses = Math.Abs(thisDay.Month - item.Cosecha.Month) + 12 * (thisDay.Year - item.Cosecha.Year);
+                                        }
+                                        <span class="card-year">@Html.DisplayFor(modelItem => meses) meses</span>
                                     </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
+                                    <a href="#" class="btn-price btn  mt-2">@Html.DisplayFor(modelItem => item.Precio)</a>
                                 </div>
                             </div>
+
                         </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Nieto Senetiner
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Nieto Senetiner </span>
-                                        <span>Malbec </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Perú |</span>
-                                        <span class="card-year">15 meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!---->
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Septima
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Septima </span>
-                                        <span>Malbec </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Argentina |</span>
-                                        <span class="card-year">10 meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Nieto Senetiner
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Nieto Senetiner </span>
-                                        <span>Malbec </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Perú |</span>
-                                        <span class="card-year">15 meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!---->
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/313090-1000-1000/200123-01-37521.jpg?v=637025473937370000"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Septima
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Septima </span>
-                                        <span>Malbec </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Argentina |</span>
-                                        <span class="card-year">10 meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card bg-dark text-light">
-                                <img src="https://wongfood.vteximg.com.br/arquivos/ids/318716-1000-1000/Vino-Tinto-Nieto-Senetiner-Estate-Bottled-Malbec-Botella-750-ml-1-2122.jpg?v=637048800573670000"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        Nieto Senetiner
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>Vino Tinto </span>
-                                        <span>Nieto Senetiner </span>
-                                        <span>Malbec </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | Perú |</span>
-                                        <span class="card-year">15 meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">39.90</a>
-                                </div>
-                            </div>
-                        </div>
+                    }                  
                     </div>
                 </div>
             </div>
