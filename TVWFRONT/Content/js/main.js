@@ -32,9 +32,11 @@ btn_filters.addEventListener('click', e => {
 })
 
 
-/** team hover */
-const team_block = document.getElementById('team-block');
-team_block.addEventListener('mouseover', e => {
-    let team_content = document.getElementById('team-content');
-    team_content.style.display = 'block'
-})
+    const radioOrdens = document.querySelectorAll('input[name="orden"]');
+    radioOrdens.forEach( (f) => {
+    
+        f.addEventListener('click', function(){
+            document.getElementById('orderform').submit();
+        });
+    });
+    

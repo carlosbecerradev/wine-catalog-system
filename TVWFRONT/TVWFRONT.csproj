@@ -123,6 +123,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CepaViewModel.cs" />
+    <Compile Include="Models\ContenedorViewModel.cs" />
     <Compile Include="Models\MarcaViewModel.cs" />
     <Compile Include="Models\TipoVinoViewModel.cs" />
     <Compile Include="Models\VinoViewModel.cs" />
