@@ -5,40 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Gestionar vinos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagenUri)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdTipoVino)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdMarca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCepa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pais)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cosecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th></th>
-    </tr>
+    @Html.ActionLink("Crear Nuevo", "Create", new { controller = "Vino" },
+                           new { @class = "btn btn-primary" })
 
+    <a class="btn btn-primary py-3" href="http://localhost:3294/Subir/Index" target="_blank">Subir Imágenes</a>
+</p>
+<table class="table table-bordered table-hover">
+    
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenUri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoVino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMarca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCepa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cosecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    
 @foreach (var item in Model) {
     <tr>
         <td>

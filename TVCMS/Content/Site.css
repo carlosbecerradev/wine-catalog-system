@@ -43,3 +43,11 @@ input[type="checkbox"].input-validation-error {
 .navbar-nav {
     float: right !important;
 }
+
+/* bootstrap alterate*/
+.row {
+    display: flex;
+}
+.justify-content-center {
+    justify-content: center;
+}

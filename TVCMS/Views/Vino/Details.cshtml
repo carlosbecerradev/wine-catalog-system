@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>VinoViewModel</h4>
+    
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImagenUri)
+            <img src="@Html.DisplayFor(model => model.ImagenUri)" width="100px" />
         </dd>
 
         <dt>

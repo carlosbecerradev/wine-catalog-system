@@ -5,24 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Crear Nuevo Vino</h2>
 
-<a class="btn btn-primary py-3" href="http://localhost:3294/Subir/Index" target="_blank">Subir Imágenes</a>
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>VinoViewModel</h4>
+        
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.ImagenUri, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar")
+                @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar", new { @id = "selectImagen" })
                 @Html.ValidationMessageFor(model => model.ImagenUri)
             </div>
+            <img id="MostrarImagen" width="100px" src=""/>
         </div>
 
         <div class="form-group">
@@ -83,7 +84,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -92,6 +93,14 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    let selectInput = document.getElementById("selectImagen");
+    let imgTag = document.getElementById("MostrarImagen");
+
+    selectInput.addEventListener('change', e => {        
+        imgTag.src = e.target.value;
+    });
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
