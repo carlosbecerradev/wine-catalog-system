@@ -108,7 +108,6 @@
                         </div>
                         <h2 class="main-title text-playfair d-none d-md-block">Selección de Vinos</h2>
                         <!--sort-by button-->
-                        @ViewBag.Orden = "";
                         <div class="btn-group sort-by">
                             <button type="button" class="btn btn-option bg-dark dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -116,7 +115,7 @@
                             </button>
                             <div class="filters-block dropdown-menu dropdown-menu-right sort-by-block"
                                  aria-labelledby="dropdownMenuReference">
-                                @using (Html.BeginForm("modeloVino", "Home", FormMethod.Post, new { role = "form", enctype = "multipart/form-data", id = "orderform" }))
+                                @using (Html.BeginForm("Catalogo", "Home", FormMethod.Get, new { role = "form", enctype = "multipart/form-data", id = "orderform" }))
                                 {
                                  <label class="filters-label dropdown-item">
                                         <input hidden type="radio" name="orden" value="1" class="mr-3">  

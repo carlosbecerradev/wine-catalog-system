@@ -17,7 +17,7 @@ namespace TVWFRONT.Controllers
     {
 
         private string BaseURL = "http://localhost:3212/api/Vino";
-        
+
         //
         // GET: /Home/
         public ActionResult Inicio()
@@ -27,16 +27,25 @@ namespace TVWFRONT.Controllers
 
 
         // GET: /Home/
-        public ActionResult Catalogo()
+        public ActionResult Catalogo(int orden = 1)
         {
             ContenedorViewModel container = new ContenedorViewModel();
-
+            
             HttpClient client = new HttpClient();
 
             var result = client.GetAsync(BaseURL).Result;
             if (result.IsSuccessStatusCode)
             {
-                container.lstVinos = modeloVino().OrderByDescending(p => p.Precio);
+                if (orden == 1)
+                {
+                    container.lstVinos = modeloVino().OrderByDescending(o => o.Precio);
+                }
+                else
+                    if (orden == 2)
+                    {
+                        container.lstVinos = modeloVino().OrderBy(o => o.Precio);
+                    }
+
                 container.lstMarcas = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
                 container.lstCepas = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;
                 container.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;                
@@ -45,6 +54,7 @@ namespace TVWFRONT.Controllers
 
             return View(container);
         }
+
 
         [HttpPost]
         public ActionResult Catalogo(string tipo_vino = "", string marca = "", string cepa = "")
@@ -77,6 +87,7 @@ namespace TVWFRONT.Controllers
             return View(container);
         }
 
+
         public List<VinoViewModel> modeloVino()
         {
             List<VinoViewModel> list = new List<VinoViewModel>();
@@ -95,7 +106,6 @@ namespace TVWFRONT.Controllers
             }
             return list;
         }
-
 
 
 	}
