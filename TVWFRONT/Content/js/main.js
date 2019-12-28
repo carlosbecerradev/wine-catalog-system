@@ -30,11 +30,3 @@ btn_filters.addEventListener('click', e => {
     }
     console.log(count)
 })
-
-
-/** team hover */
-const team_block = document.getElementById('team-block');
-team_block.addEventListener('mouseover', e => {
-    let team_content = document.getElementById('team-content');
-    team_content.style.display = 'block'
-})

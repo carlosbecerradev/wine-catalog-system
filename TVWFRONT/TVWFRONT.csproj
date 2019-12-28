@@ -123,6 +123,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CepaViewModel.cs" />
+    <Compile Include="Models\ContenedorViewModel.cs" />
     <Compile Include="Models\MarcaViewModel.cs" />
     <Compile Include="Models\TipoVinoViewModel.cs" />
     <Compile Include="Models\VinoViewModel.cs" />
@@ -145,6 +146,7 @@
     <Content Include="Content\img\bg3.jpg" />
     <Content Include="Content\img\bg4.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\Filtrar.js" />
     <Content Include="Content\js\jquery-3.3.1.slim.min.js" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\popper.min.js" />

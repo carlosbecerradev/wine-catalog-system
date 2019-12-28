@@ -1,6 +1,6 @@
-﻿@model  IEnumerable<TVWFRONT.Models.VinoViewModel>
+﻿@model  TVWFRONT.Models.ContenedorViewModel
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -67,71 +67,37 @@
                                 <details class="filters-details" open>
                                     <summary>Tipos de Vino <i class="fas fa-chevron-down"></i></summary>
                                     <div class="filters-options">
-                                    @foreach (var item in Model) {
+                                        @foreach (var item in Model.lstTVino)
+                                        {
                                         <label class="filters-label dropdown-item">
-                                            <input type="checkbox"  name="tipo_vino" value="">
-                                            @Html.DisplayFor(modelItem => item.lstTVino)
+                                            <input type="radio" name="tipo_vino" value="@Html.DisplayFor(modelItem => item.Nombre)" class="mr-3">
+                                            @Html.DisplayFor(modelItem => item.Nombre)
                                         </label>
-                                    }
+                                        }
                                     </div>
                                 </details>
                                 <details class="filters-details">
                                     <summary>Marca <i class="fas fa-chevron-down"></i></summary>
                                     <div class="filters-options">
+                                        @foreach (var item in Model.lstMarcas)
+                                        {  
                                         <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Alamos
+                                            <input type="radio" name="marca" value="@Html.DisplayFor(modelItem => item.Nombre)" class="mr-3">
+                                            @Html.DisplayFor(modelItem => item.Nombre)
                                         </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Aliwen
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Colome
-                                        </label>
+                                        }
                                     </div>
                                 </details>
                                 <details class="filters-details">
                                     <summary>Cepa <i class="fas fa-chevron-down"></i></summary>
                                     <div class="filters-options">
+                                        @foreach (var item in Model.lstCepas)
+                                        {
                                         <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Ancellota
+                                            <input type="radio" name="cepa" value="@Html.DisplayFor(modelItem => item.Nombre)" class="mr-3">
+                                            @Html.DisplayFor(modelItem => item.Nombre)
                                         </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Blend
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Bonarda
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Cabernet Franc
-                                        </label>
-                                    </div>
-                                </details>
-                                <details class="filters-details">
-                                    <summary>Rango de precios <i class="fas fa-chevron-down"></i></summary>
-                                    <div class="filters-options">
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Hasta 50
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            50 - 100
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            100 - 200
-                                        </label>
-                                        <label class="filters-label dropdown-item">
-                                            <input type="checkbox" rel="f1=B:9800" name="9800" value="9800">
-                                            Más de 200
-                                        </label>
+                                        }
                                     </div>
                                 </details>
                             </div>
@@ -145,10 +111,8 @@
                             </button>
                             <div class="filters-block dropdown-menu dropdown-menu-right sort-by-block"
                                  aria-labelledby="dropdownMenuReference">
-
-                                <button class="dropdown-item sort-by-btn">Menor a Mayor Precio</button>
-                                <button class="dropdown-item sort-by-btn">Mayor a Menor Precio</button>
-                                <button class="dropdown-item sort-by-btn">Por año</button>
+                                @Html.ActionLink("Mayor Precio", "Logout", new { controller = "Home" }, new { @class = "dropdown-item sort-by-btn" })
+                                @Html.ActionLink("Menor Precio", "Logout", new { controller = "Home" }, new { @class = "dropdown-item sort-by-btn" })
 
                                 <!-- <div class="dropdown-divider"></div> -->
                             </div>
@@ -156,38 +120,39 @@
                     </nav>
                     <h2 class="main-title text-playfair d-md-none">Selección de Vinos</h2>
                     <!--cards section-->
-                    <div class="row no-gutters justify-content-center">
+                    <div id="productos" class="row no-gutters justify-content-center">
+                        @foreach (var item in Model.lstVinos)
+                        {
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
-                    @foreach (var item in Model) {
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-
-                            <div class="card bg-dark text-light">
-                                <div class="card-img-top">
-                                    <img src="@Html.DisplayFor(modelItem => item.ImagenUri)" class="d-block" alt="...">
-                                </div>                                
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-warning text-uppercase text-playfair">
-                                        @Html.DisplayFor(modelItem => item.Marca.Nombre)
-                                    </h5>
-                                    <p class="card-text">
-                                        <span>@Html.DisplayFor(modelItem => item.TipoVino.Nombre) </span>
-                                        <span>@Html.DisplayFor(modelItem => item.Marca.Nombre) </span>
-                                        <span>@Html.DisplayFor(modelItem => item.Cepa.Nombre) </span>
-                                        <span>Botella 750 ml </span>
-                                        <span class="card-country"> | @Html.DisplayFor(modelItem => item.Pais) |</span>
-                                        @{
+                                <div class="card bg-dark text-light">
+                                    <div class="card-img-top">
+                                        <img src="@Html.DisplayFor(modelItem => item.ImagenUri)" class="d-block" alt="...">
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-warning text-uppercase text-playfair">
+                                            @Html.DisplayFor(modelItem => item.Marca.Nombre)
+                                        </h5>
+                                        <p class="card-text">
+                                            <span>@Html.DisplayFor(modelItem => item.TipoVino.Nombre) </span>
+                                            <span>@Html.DisplayFor(modelItem => item.Marca.Nombre) </span>
+                                            <span>@Html.DisplayFor(modelItem => item.Cepa.Nombre) </span>
+                                            <span>Botella 750 ml </span>
+                                            <span class="card-country"> | @Html.DisplayFor(modelItem => item.Pais) |</span>
+                                            @{
                                             DateTime thisDay = DateTime.Today;
                                             int meses = Math.Abs(thisDay.Month - item.Cosecha.Month) + 12 * (thisDay.Year - item.Cosecha.Year);
-                                        }
-                                        <span class="card-year">@Html.DisplayFor(modelItem => meses) meses</span>
-                                    </p>
-                                    <a href="#" class="btn-price btn  mt-2">@Html.DisplayFor(modelItem => item.Precio)</a>
+                                            }
+                                            <span class="card-year">@Html.DisplayFor(modelItem => meses) meses</span>
+                                        </p>
+                                        <a href="#" class="btn-price btn  mt-2">@Html.DisplayFor(modelItem => item.Precio)</a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
-                    }                  
+                            </div>
+                        }
                     </div>
+
                 </div>
             </div>
         </div>
@@ -202,14 +167,10 @@
     </footer>  
       <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="~/Content/js/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="~/Content/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="~/Content/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <script src="~/Content/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Content/js/popper.min.js" ></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>    
     <script src="~/Content/js/main.js"></script>
+     <!-- Filtros -->
 </body>
 </html>

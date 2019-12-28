@@ -46,3 +46,5 @@ E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWAPI\obj\Debug\TVWAPI.csprojResolveAssemblyReference.cache
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWAPI\obj\Debug\TVWAPI.dll
 E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWAPI\obj\Debug\TVWAPI.pdb
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWAPI\bin\WebApiContrib.Formatting.Jsonp.dll
+E:\IDAT\CICLO IV\Herramientas de Programación II\PROYECTO WINE CATALOG\con git\TiendaVinos\TVWAPI\bin\WebApiContrib.Formatting.Jsonp.pdb

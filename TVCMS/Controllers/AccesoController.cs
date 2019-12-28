@@ -59,7 +59,7 @@ namespace TVCMS.Controllers
                         {
                             return RedirectToAction("Index", "Usuario");
                         }
-                        return RedirectToAction("Index", "Cepa");
+                        return RedirectToAction("Index", "Vino");
                     }
                 }
                 ViewBag.ErrorMsg = "¡No se logró establecer comunicación...!";
