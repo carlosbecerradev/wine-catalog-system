@@ -30,3 +30,13 @@ btn_filters.addEventListener('click', e => {
     }
     console.log(count)
 })
+
+
+    const radioOrdens = document.querySelectorAll('input[name="orden"]');
+    radioOrdens.forEach( (f) => {
+    
+        f.addEventListener('click', function(){
+            document.getElementById('orderform').submit();
+        });
+    });
+    

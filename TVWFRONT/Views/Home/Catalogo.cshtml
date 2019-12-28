@@ -64,6 +64,8 @@
                                 Filtrar
                             </button>
                             <div id="filters-dropdown-block" class="filters-block rounded">
+                                @using (Html.BeginForm("Catalogo", "Home", FormMethod.Post, new { role="form", enctype="multipart/form-data" } ))
+                                {
                                 <details class="filters-details" open>
                                     <summary>Tipos de Vino <i class="fas fa-chevron-down"></i></summary>
                                     <div class="filters-options">
@@ -100,10 +102,13 @@
                                         }
                                     </div>
                                 </details>
+                                <button class="btn btn-block text-center btn-primary">Filtrar</button>
+                                }
                             </div>
                         </div>
                         <h2 class="main-title text-playfair d-none d-md-block">Selección de Vinos</h2>
                         <!--sort-by button-->
+                        @ViewBag.Orden = "";
                         <div class="btn-group sort-by">
                             <button type="button" class="btn btn-option bg-dark dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -111,9 +116,17 @@
                             </button>
                             <div class="filters-block dropdown-menu dropdown-menu-right sort-by-block"
                                  aria-labelledby="dropdownMenuReference">
-                                @Html.ActionLink("Mayor Precio", "Logout", new { controller = "Home" }, new { @class = "dropdown-item sort-by-btn" })
-                                @Html.ActionLink("Menor Precio", "Logout", new { controller = "Home" }, new { @class = "dropdown-item sort-by-btn" })
-
+                                @using (Html.BeginForm("modeloVino", "Home", FormMethod.Post, new { role = "form", enctype = "multipart/form-data", id = "orderform" }))
+                                {
+                                 <label class="filters-label dropdown-item">
+                                        <input hidden type="radio" name="orden" value="1" class="mr-3">  
+                                        Mayor Precio                                          
+                                 </label>
+                                 <label class="filters-label dropdown-item">
+                                        <input hidden type="radio" name="orden" value="2" class="mr-3">  
+                                        Menor Precio                                          
+                                 </label>
+                                }
                                 <!-- <div class="dropdown-divider"></div> -->
                             </div>
                         </div>
@@ -171,6 +184,5 @@
     <script src="~/Content/js/popper.min.js" ></script>
     <script src="~/Content/js/bootstrap.min.js"></script>    
     <script src="~/Content/js/main.js"></script>
-     <!-- Filtros -->
 </body>
 </html>

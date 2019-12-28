@@ -17,6 +17,7 @@ namespace TVWFRONT.Controllers
     {
 
         private string BaseURL = "http://localhost:3212/api/Vino";
+        
         //
         // GET: /Home/
         public ActionResult Inicio()
@@ -29,6 +30,55 @@ namespace TVWFRONT.Controllers
         public ActionResult Catalogo()
         {
             ContenedorViewModel container = new ContenedorViewModel();
+
+            HttpClient client = new HttpClient();
+
+            var result = client.GetAsync(BaseURL).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                container.lstVinos = modeloVino().OrderByDescending(p => p.Precio);
+                container.lstMarcas = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
+                container.lstCepas = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;
+                container.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;                
+            }            
+            
+
+            return View(container);
+        }
+
+        [HttpPost]
+        public ActionResult Catalogo(string tipo_vino = "", string marca = "", string cepa = "")
+        {
+            ContenedorViewModel container = new ContenedorViewModel();
+
+            HttpClient client = new HttpClient();
+
+            var result = client.GetAsync(BaseURL).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                if (tipo_vino == "" && marca == "" && cepa == "")
+                {
+                    container.lstVinos = container.lstVinos = modeloVino().OrderByDescending(p => p.Precio);
+                }
+                else
+                {
+                    IEnumerable<VinoViewModel> prevlist = new List<VinoViewModel>();
+                    prevlist = modeloVino().Where(w => w.TipoVino.Nombre == tipo_vino || w.Marca.Nombre == marca || w.Cepa.Nombre == cepa);
+                    container.lstVinos = prevlist;
+                }
+
+
+                container.lstMarcas = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
+                container.lstCepas = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;
+                container.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;
+            }
+
+
+            return View(container);
+        }
+
+        public List<VinoViewModel> modeloVino()
+        {
             List<VinoViewModel> list = new List<VinoViewModel>();
             HttpClient client = new HttpClient();
             var result = client.GetAsync(BaseURL).Result;
@@ -40,18 +90,12 @@ namespace TVWFRONT.Controllers
                     vino.TipoVino = client.GetAsync("http://localhost:3212/api/TipoVino?id=" + vino.IdTipoVino.ToString()).Result.Content.ReadAsAsync<TipoVinoViewModel>().Result;
                     vino.Marca = client.GetAsync("http://localhost:3212/api/Marca?id=" + vino.IdMarca.ToString()).Result.Content.ReadAsAsync<MarcaViewModel>().Result;
                     vino.Cepa = client.GetAsync("http://localhost:3212/api/Cepa?id=" + vino.IdCepa.ToString()).Result.Content.ReadAsAsync<CepaViewModel>().Result;
-
                 }
+
             }
-
-            container.lstVinos = list;
-            container.lstMarcas = client.GetAsync("http://localhost:3212/api/Marca").Result.Content.ReadAsAsync<List<MarcaViewModel>>().Result;
-            container.lstCepas = client.GetAsync("http://localhost:3212/api/Cepa").Result.Content.ReadAsAsync<List<CepaViewModel>>().Result;
-            container.lstTVino = client.GetAsync("http://localhost:3212/api/TipoVino").Result.Content.ReadAsAsync<List<TipoVinoViewModel>>().Result;
-            
-
-            return View(container);
+            return list;
         }
+
 
 
 	}
