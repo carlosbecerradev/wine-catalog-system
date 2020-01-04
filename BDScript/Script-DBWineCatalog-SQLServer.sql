@@ -45,53 +45,34 @@ CREATE TABLE [Vino] (
 );
 GO
 
--- SELECTs
---  SELECT * FROM [Marca];
---  SELECT * FROM [TipoVino];
---  SELECT * FROM [Cepa];
---  SELECT * FROM [Vino];
 
 --- INSERTs
 INSERT INTO [Marca] ([Nombre])
 	VALUES 
-	('CONCHA Y TORO'),
-	('SANTIAGO QUEIROLO'),
-	('TABERNERO'),
-	('TRAPICHE'),
-	('TACAMA');
+	('Concha y Toro'),
+	('Santiago Queirolo'),
+	('Tabernero');
 GO
 ---
 
 INSERT INTO [TipoVino] ([Nombre])
 	VALUES 
-	('VINO TINTO'),
-	('VINO BLANCO'),
-	('VINO ROSE');
+	('Vino Tinto'),
+	('Vino Blanco'),
+	('Vino Rose');
 GO
 ---
 	
 INSERT INTO [Cepa] ([Nombre])
 	VALUES 
-	('ANCELLOTA'),
-	('BLEND'),
-	('BONARDA'),
-	('CABERNET FRANC'),
-	('VIURA');
+	('Ancellota'),
+	('Blend'),
+	('Bonarda'),
+	('Cabernet Franc'),
+	('Viura');
 GO
 ---
 
-INSERT INTO [Vino] ([ImagenUri], [IdTipoVino], [IdMarca],[IdCepa], [Pais], [Cosecha], [Precio], [Stock])
-	VALUES 
-	('img/img1.jpg', 1, 1, 1, 'Italia', '2018-10-15', 55, 100),
-	('img/img1.jpg', 1, 2, 1, 'Francia', '2018-10-15', 45, 100),
-	('img/img1.jpg', 1, 1, 2, 'Italia', '2018-10-15', 155, 100),
-	('img/img1.jpg', 2, 3, 1, 'Peru', '2018-10-15', 85, 100),
-	('img/img1.jpg', 2, 1, 3, 'Francia', '2018-10-15', 255, 100),
-	('img/img1.jpg', 2, 2, 3, 'Peru', '2018-10-15', 200, 100);
-GO
-
--- select * from Vino where Precio between 40 and 100;
--- use DBWineCatalog
 CREATE TABLE [Role] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Tipo] [varchar](20) NOT NULL UNIQUE,
@@ -112,15 +93,20 @@ GO
 
 INSERT INTO [Role] ([Tipo])
 	VALUES 
-	('CLIENTE'),
+	('SUPERADM'),
 	('ADMIN');
 GO
 
 INSERT INTO [Usuario] ([Nombre], [Contrasenia], [Estado], [IdRole])
 	VALUES 
-	('cliente', '123', 1, 1),
-	('administrador', '123', 0, 2);
+	('carlos', '123', 1, 1),
+	('usuario', '123', 0, 2);
 GO
 
--- select * from Usuario
--- select * from Role
+-- SELECTs
+--  SELECT * FROM [Marca];
+--  SELECT * FROM [TipoVino];
+--  SELECT * FROM [Cepa];
+--  SELECT * FROM [Vino];
+--  SELECT * FROM [Usuario];
+--  SELECT * FROM [Role];
