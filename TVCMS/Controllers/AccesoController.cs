@@ -15,6 +15,7 @@ namespace TVCMS.Controllers
 {
     public class AccesoController : Controller
     {
+        
         private string BaseURL = "http://localhost:3212/api/Usuario";
 
         // GET: Acceso
@@ -52,14 +53,16 @@ namespace TVCMS.Controllers
                         return View(usr);
                     }
                     else
-                    {
-                        Session["ssUsuario"] = destUsr;
+                    {                        
 
-                        if (destUsr.IdRole == 1) // ADMIN
+                        if (destUsr.IdRole == 1 && destUsr.Estado == true) // ADMIN
                         {
-                            return RedirectToAction("Index", "Usuario");
+                            Session["ssUsuario"] = destUsr;
+                            return RedirectToAction("Index", "Vino");
                         }
-                        return RedirectToAction("Index", "Vino");
+                        ViewBag.ErrorMsg = "¡Usuario desactivado ...!";
+                        return View(usr);
+                        
                     }
                 }
                 ViewBag.ErrorMsg = "¡No se logró establecer comunicación...!";

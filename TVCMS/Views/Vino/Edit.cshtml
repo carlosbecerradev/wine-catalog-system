@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Editar Vino</h2>
+<h2>Editar vino</h2>
 
 
 @using (Html.BeginForm())
@@ -14,24 +14,23 @@
     
     <div class="form-horizontal">
         
-
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.ImagenUri, new { @class = "control-label col-md-2" })
-<div class="col-md-10">
-    @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar", new { @id = "selectImagen" })
-    @Html.ValidationMessageFor(model => model.ImagenUri)
-</div>
-<img id="MostrarImagen" width="100px" src="" />
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ImagenUri, new SelectList(Model.lstImagenes), "Seleccionar", new { @id = "selectImagen" })
+                @Html.ValidationMessageFor(model => model.ImagenUri)
+            </div>
+            <img id="MostrarImagen" width="100px" src="" />
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdTipoVino, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdTipoVino, new SelectList(Model.lstTVino, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdTipoVino, new SelectList(Model.lstTVino, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdTipoVino)
             </div>
         </div>
@@ -39,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdMarca, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdMarca, new SelectList(Model.lstMarca, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdMarca, new SelectList(Model.lstMarca, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdMarca)
             </div>
         </div>
@@ -47,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdCepa, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdCepa, new SelectList(Model.lstCepa, "Id", "Nombre"), "Selecciona")
+                @Html.DropDownListFor(model => model.IdCepa, new SelectList(Model.lstCepa, "Id", "Nombre"), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.IdCepa)
             </div>
         </div>
@@ -55,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Pais, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Pais, new SelectList(Model.lstPais), "Selecciona")
+                @Html.DropDownListFor(model => model.Pais, new SelectList(Model.lstPais), "Seleccionar")
                 @Html.ValidationMessageFor(model => model.Pais)
             </div>
         </div>
@@ -86,7 +85,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -95,7 +94,6 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 <script>
     let selectInput = document.getElementById("selectImagen");
     let imgTag = document.getElementById("MostrarImagen");
@@ -104,6 +102,7 @@
         imgTag.src = e.target.value;
     });
 </script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

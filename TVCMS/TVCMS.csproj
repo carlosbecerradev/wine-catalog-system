@@ -199,9 +199,9 @@
     <Content Include="Views\Vino\Index.cshtml" />
     <Content Include="Views\Vino\Details.cshtml" />
     <Content Include="Views\Vino\Create.cshtml" />
-    <Content Include="Views\Vino\Edit.cshtml" />
     <Content Include="Views\Vino\Delete.cshtml" />
     <Content Include="Views\Subir\Index.cshtml" />
+    <Content Include="Views\Vino\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
